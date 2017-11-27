@@ -1,0 +1,1 @@
+<script src="${pageContext.request.contextPath}/sources/external/bootstrap/js/bootstrap.js"></script>
