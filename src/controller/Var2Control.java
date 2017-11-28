@@ -15,9 +15,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-@WebServlet("/Var1Control")
+@WebServlet("/Var2Control")
 
-public class Var1Control extends HttpServlet {
+public class Var2Control extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -54,18 +54,18 @@ public class Var1Control extends HttpServlet {
             src = Integer.valueOf(s);
             dest = Integer.valueOf(t);
             EdgeDisjointPath edp = new EdgeDisjointPath(rawGraph);
-            ArrayList<LinkedList<Integer>> hlPaths = edp.findSuurballePaths(null, src, dest);
+            ArrayList<LinkedList<Integer>> hlPaths = edp.findMaxEdjPaths(null, src, dest);
             GraphVisualizer gv = new GraphVisualizer();
             Graph<Integer, CustomEdge> g = gv.createGraph(edp.getRawGraph());
             gv.colorEdges(g, hlPaths);
-            String baseGraphPath = request.getServletContext().getAttribute("FILES_DIR")+ File.separator + "variation1.png";
+            String baseGraphPath = request.getServletContext().getAttribute("FILES_DIR")+ File.separator + "variation2.png";
             gv.saveGraph(null, baseGraphPath);
             request.setAttribute("error",false);
-            request.setAttribute("message", "Variation1 result generated.");
-            request.setAttribute("var1_graph", "variation1.png");
+            request.setAttribute("message", "Variation2 result generated.");
+            request.setAttribute("var2_graph", "variation2.png");
             request.setAttribute("path_set", hlPaths);
             request.setAttribute("path_cost", edp.getPathSetCost(g, hlPaths));
-            request.getRequestDispatcher("view/variation1.jsp").forward(request, response);
+            request.getRequestDispatcher("view/variation2.jsp").forward(request, response);
         }
     }
 

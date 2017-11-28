@@ -27,10 +27,10 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-            <li><a href="">Base Case</a></li>
-            <li><a href="">Variation1</a></li>
-            <li><a href="">Variation2</a></li>
-            <li><a href="">Variation3</a></li>
+            <li><a href="BaseControl">Base Case</a></li>
+            <li><a href="Var1Control">Variation1</a></li>
+            <li><a href="Var2Control">Variation2</a></li>
+            <li><a href="Var3Control">Variation3</a></li>
         </ul>
     </div>
 </nav>

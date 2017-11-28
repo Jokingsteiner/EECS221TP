@@ -25,29 +25,34 @@ public class BaseControl extends HttpServlet {
         Integer src, dest;
         String s = request.getParameter("source");
         String t = request.getParameter("dest");
-        if(s != null && !s.equals("")) {
-            src = Integer.valueOf(s);
+        if(s != null && !s.equals(""))
             this.getServletConfig().getServletContext().setAttribute("source", s);
-        }
         else
-            src = (Integer)this.getServletConfig().getServletContext().getAttribute("source");
-        if(t != null && !t.equals("")) {
-            dest = Integer.valueOf(t);
+            s = (String)this.getServletConfig().getServletContext().getAttribute("source");
+        if(t != null && !t.equals(""))
             this.getServletConfig().getServletContext().setAttribute("dest", t);
-        }
         else
-            dest = (Integer)this.getServletConfig().getServletContext().getAttribute("dest");
+            t = (String)this.getServletConfig().getServletContext().getAttribute("dest");
         if (rawGraph == null) {
             request.setAttribute("error",true);
             request.setAttribute("message", "Please upload csv file first");
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
-        else if (src == null || dest == null) {
+        // global s and t are still not set
+        else if (s == null || s.equals("") || t == null || t.equals("")) {
             request.setAttribute("error",true);
             request.setAttribute("message", "Please select source and destination node");
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
         else {
+            if (s.equals(t)) {
+                request.setAttribute("error",true);
+                request.setAttribute("message", "Source and Destination node must be different");
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+                return;
+            }
+            src = Integer.valueOf(s);
+            dest = Integer.valueOf(t);
             EdgeDisjointPath edp = new EdgeDisjointPath(rawGraph);
             ArrayList<LinkedList<Integer>> hlPaths = edp.findEdjPaths(null, src, dest);
             GraphVisualizer gv = new GraphVisualizer();
@@ -58,6 +63,8 @@ public class BaseControl extends HttpServlet {
             request.setAttribute("error",false);
             request.setAttribute("message", "Base case result generated.");
             request.setAttribute("base_graph", "base.png");
+            request.setAttribute("path_set", hlPaths);
+            request.setAttribute("path_cost", edp.getPathSetCost(g, hlPaths));
             request.getRequestDispatcher("view/basecase.jsp").forward(request, response);
         }
     }

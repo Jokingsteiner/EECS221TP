@@ -1,8 +1,8 @@
-#photo {
-    min-width:75%;
-    min-height:75%;
-    max-width:75%;
-    max-height:75%;
+.photo {
+    min-width:70%;
+    min-height:70%;
+    max-width:70%;
+    max-height:70%;
     /*float: left;*/
     display: block;
     margin: 0 auto;
@@ -10,6 +10,10 @@
     border: 5px solid lightyellow;
     color: white;
     font-size: 200%;
+}
+
+.panel-body {
+    background-color: #e2e2e2;
 }
 
 .panel-body .mytext {

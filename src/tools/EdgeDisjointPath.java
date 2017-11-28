@@ -166,13 +166,6 @@ public class EdgeDisjointPath {
                 rg.addEdge(new CustomEdge(pathArray2[i + 1], pathArray2[i], weight), pathArray2[i + 1], pathArray2[i], EdgeType.DIRECTED);
         }
 
-        System.out.print("path1: ");
-        for (Integer i: path1)
-            System.out.print(i + " ");
-        System.out.print("\npath2: ");
-        for (Integer i: path2)
-            System.out.print(i + " ");
-        System.out.println();
         solveConflict(tg, rg, resultPaths, path2);
         return resultPaths;
     }
@@ -226,7 +219,7 @@ public class EdgeDisjointPath {
 //            drawServer.saveGraph(rg, "F:\\Users\\OneDrive\\Documents\\UCI\\EECS 221 Adv Data Know\\Projects\\Term_Project\\residual\\" + ++count + ".png");
         }
 
-        System.out.println("Maximum number of edge-disjoint path: " + maxflow);
+//        System.out.println("Maximum number of edge-disjoint path: " + maxflow);
         return pathSet;
     }
 

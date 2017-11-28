@@ -51,14 +51,13 @@
                                 </form>
                             </div>
                             <%
-                                Boolean error = (Boolean)request.getAttribute("error");
                                 Boolean uploaded = (Boolean)this.getServletConfig().getServletContext().getAttribute("uploaded");
-                                if(error != null && uploaded) {
+                                if(uploaded != null && uploaded) {
                                     String orgGraphName = (String)this.getServletConfig().getServletContext().getAttribute("org_graph");
                                     ArrayList<Integer> nodeList = (ArrayList<Integer>)this.getServletConfig().getServletContext().getAttribute("node_list");
                             %>
                                 <div class="mytext">
-                                    </br>Please select the source node and destination node. </br>
+                                    <br>Please select the source node and destination node. <br>
                                     <b>Source</b> and <b>Destination MUST </b>be different.
                                 </div>
 
@@ -67,7 +66,7 @@
                                         <label class="mytext">Source:</label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                            <select  name="source" class="form-control" onblur="document.var1_form.input.value = this.value;">
+                                            <select  name="source" class="form-control">
                                                 <option value="">select source...</option>
                                                 <%
                                                     for (Integer node: nodeList) {
@@ -84,7 +83,7 @@
                                         <label class="mytext">Destination:</label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                            <select  name="dest" class="form-control" onblur="document.var1_form.input.value = this.value;">
+                                            <select  name="dest" class="form-control">
                                                 <option value="">select dest...</option>
                                                 <%
                                                     for (Integer node: nodeList) {
@@ -96,14 +95,15 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <button class="btn btn-default col-lg-1" type="submit"><i class="fa fa-search"></i> Base Case</button>
-                                        <button class="btn btn-default col-lg-1" formaction="Var1Control" type="submit"><i class="fa fa-search"></i> Variation1</button>
-                                    </div>
+                                    <br>
+                                    <button class="btn btn-default col-lg-1" type="submit"><i class="fa fa-search"></i> Base Case</button>
+                                    <button class="btn btn-default col-lg-1" formaction="Var1Control" type="submit"><i class="fa fa-search"></i> Variation1</button>
+                                    <button class="btn btn-default col-lg-1" formaction="Var2Control" type="submit"><i class="fa fa-search"></i> Variation2</button>
+                                    <button class="btn btn-default col-lg-1" formaction="Var3Control" type="submit"><i class="fa fa-search"></i> Variation3</button>
                                 </form>
                                 <div class="row-items col-lg-12">
                                     <div class='mytext' align="center">Original Graph</div>
-                                    <img id="photo" src="<%="tmpfiles/"+orgGraphName%>" onError="this.onerror=null;this.src='image/thumbnail_unavailable.jpg';"><br>
+                                    <img class="photo" src="<%="tmpfiles/"+orgGraphName%>" onError="this.onerror=null;this.src='image/thumbnail_unavailable.jpg';"><br>
                                 </div>
                             <%
                                 }
