@@ -20,3 +20,7 @@ ul.page-selector {
 .my-title {
     font-family: Impact, Charcoal, sans-serif;
 }
+
+.myForm {
+    display:inline;
+}

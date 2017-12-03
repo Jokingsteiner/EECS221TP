@@ -61,6 +61,9 @@ public class UploadControl extends HttpServlet {
                 this.getServletConfig().getServletContext().setAttribute("org_graph", "original.png");
                 this.getServletConfig().getServletContext().setAttribute("node_list", nodeList);
                 this.getServletConfig().getServletContext().setAttribute("uploaded", true);
+                // reset global source and dest
+                this.getServletConfig().getServletContext().setAttribute("source", "");
+                this.getServletConfig().getServletContext().setAttribute("dest", "");
                 this.getServletConfig().getServletContext().setAttribute("raw_data", rawGraph);
 
             } catch (Exception ex) {

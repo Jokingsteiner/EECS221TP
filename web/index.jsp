@@ -42,13 +42,21 @@
                                     <li>The input must be a connected graph.</li>
                                     <li>The node id must start from 1.</li>
                                     <li>There never exsits a duplicate entry. (i.e. two edges has same source and target).</li>
+                                    <li>You may select given input sample instead of uploading CSV file.</li>
+                                    <li><b>You may need to refresh the page to see updated graph.</b></li>
                                 </ul>
 
                                 Please upload csv file first before you run any applications.
-                                <form action="UploadControl" method="post" enctype="multipart/form-data">
-                                    <input type="file" name="file" accept=".csv"/>
-                                    <button class="btn btn-default" type="submit" value="upload"><i class="fa fa-search"></i> Submit</button>
-                                </form>
+                                <div>
+                                    <form class = "myForm" action="UploadControl" method="post" enctype="multipart/form-data">
+                                        <input type="file" name="file" accept=".csv"/>
+                                        <button class="btn btn-default" type="submit" value="upload"><i class="fa fa-search"></i> Submit</button>
+                                    </form>
+                                    <form class = "myForm" action="SampleControl" method="post">
+                                        <input type="hidden" name="sample_name" value="input_sample.csv"/>
+                                        <button class="btn btn-default" type="submit" value="upload"><i class="fa fa-search"></i> Sample</button>
+                                    </form>
+                                </div>
                             </div>
                             <%
                                 Boolean uploaded = (Boolean)this.getServletConfig().getServletContext().getAttribute("uploaded");

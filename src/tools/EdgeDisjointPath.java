@@ -352,7 +352,7 @@ public class EdgeDisjointPath {
             solveConflict(tg, rg, pathSet, tempPath);
         }
 
-        System.out.println("Maximum number of edge-disjoint path: " + maxflow);
+//        System.out.println("Maximum number of edge-disjoint path: " + maxflow);
         return pathSet;
     }
 
