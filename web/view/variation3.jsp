@@ -50,7 +50,7 @@
                                         <div class="row-items">
                                             <div class='mytext' align="center">Variation3</div><br>
                                             <div class="mytext">
-                                                Find a set with maximum number of edge-disjoint paths.<br>
+                                                Find a set with maximum number of edge-disjoint paths <b>with minimum total cost.</b><br>
                                                 <%
                                                     out.print("Found " + pathSet.size() + (pathSet.size()>1?" paths. ":" path. "));
                                                     out.print("Source = " + source + " Destination = " + dest + "<br>");

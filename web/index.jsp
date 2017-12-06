@@ -40,13 +40,15 @@
                                 <ul>
                                     <li><b>Must run in Chrome.</b></li>
                                     <li>The input must be a connected graph.</li>
+                                    <li>The directed graph is nonnegatively-weighted.</li>
                                     <li>The node id must start from 1.</li>
                                     <li>There never exsits a duplicate entry. (i.e. two edges has same source and target).</li>
                                     <li>You may select given input sample instead of uploading CSV file.</li>
-                                    <li><b>You may need to refresh the page to see updated graph.</b></li>
+                                    <li><b>. You may refresh the page if graph is not updated after a change has been made.</b></li>
                                 </ul>
 
-                                Please upload csv file first before you run any applications.
+                                Please upload csv file first before you run any applications.<br>
+                                <b>The first line of input CSV is expected to be attributes but not data.</b>
                                 <div>
                                     <form class = "myForm" action="UploadControl" method="post" enctype="multipart/form-data">
                                         <input type="file" name="file" accept=".csv"/>
